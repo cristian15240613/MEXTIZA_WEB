@@ -23,7 +23,7 @@ if (!$conection) {
     $direccion=$_POST['direccion'];
     $telefono=$_POST['telefono'];
     $pass=$_POST['pass'];
-    $rol='GERENTE';
+    $rol='DISTRIBUIDOR';
     $estatus=1;
         
     
@@ -35,5 +35,5 @@ if (!$conection) {
     
     }
     mysqli_close($conection);  
-    header('location:../establishments/newTaqueria.html');
+    header('location:../establishments/nuevaSucursal.html');
 ?>

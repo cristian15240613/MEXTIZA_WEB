@@ -23,7 +23,7 @@ function consultaPersona($id){
             $filas['ROL'],
             $filas['ESTATUS']];
 }
-    $query="SELECT ID_TAQUERIA FROM TAQUERIA WHERE ID_USUARIO=".$consulta[0].";";
+    $query="SELECT ID_SUCURSAL FROM SUCURSAL WHERE ID_USUARIO=".$consulta[0].";";
     $resultado=mysqli_query($conection,$query);
     $filas=mysqli_fetch_array($resultado) or die (mysqli_error()); 
 

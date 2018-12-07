@@ -1,7 +1,6 @@
 <?php
 session_start();
 $sesion=$_SESSION['usuario'];
-
 if(isset($_SESSION['usuario'])){    
 
 
@@ -9,7 +8,7 @@ include('../PHP/Conexion.php');
 $conection=conectar();
 
 function consultaPersona($id){
-    
+
     global $conection;
     $query="SELECT * FROM USUARIO WHERE ID_USUARIO=".$id.";";
     $resultado=mysqli_query($conection,$query);
@@ -27,7 +26,7 @@ function consultaPersona($id){
     
 $consulta=consultaPersona($sesion);
     
-    $query="SELECT ID_TAQUERIA FROM TAQUERIA WHERE ID_USUARIO=".$consulta[0].";";
+    $query="SELECT ID_USUARIO FROM USUARIO WHERE ID_USUARIO=".$consulta[0].";";
     $resultado=mysqli_query($conection,$query);
     $filas=mysqli_fetch_array($resultado) or die (mysqli_error()); 
 	//$filas['ID_TAQUERIA'];
@@ -112,16 +111,16 @@ $consulta=consultaPersona($sesion);
             <a class="nav-link" href="perfilGerente.php?IDU=<?php echo $sesion;?>">Perfil</a>
           </li>
            <li class="nav-item">
-            <a class="nav-link" href="edit.php?IDU=<?php echo $sesion;?>">Editar Perfil</a>
+            <a class="nav-link" href="edit.php?IDU=<?php echo $sesion; ?>">Editar Perfil</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mi taqueria</a>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Mi sucursal</a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" href="taqueria/editTaqueria.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar taqueria</a>
-              <a class="dropdown-item" href="taqueria/editPromotions.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar promociones</a>
-              <a class="dropdown-item" href="taqueria/newPromocion.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Crear promociones</a>
-              <a class="dropdown-item" href="taqueria/editBD.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar bolsa de trabajo</a>
+              <a class="dropdown-item" href="taqueria/editTaqueria.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Editar sucursal</a>
             </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="edit.php?IDU=<?php echo $sesion;?>">Nuevo pedido</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="taqueria/comments.php?IDU=<?php echo $sesion;?>&IDT=<?php echo $filas['ID_TAQUERIA'];?>">Comentarios</a>
@@ -141,6 +140,9 @@ $consulta=consultaPersona($sesion);
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    
     
     <!------------------------------------------------------------------------------->
     
@@ -183,7 +185,7 @@ $consulta=consultaPersona($sesion);
                     Dirección:
                 </div>
                 <div class="col-9" style="text-align: left;">
-                     <?php echo $consulta[6];?>
+                     <?php echo $consulta[6]; ?>
                 </div>
              </div>
              

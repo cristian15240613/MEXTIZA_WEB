@@ -1,12 +1,8 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <!------------- MAPA------->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
-   <!-- Make sure you put this AFTER Leaflet's CSS --> <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
-  
-   <link rel="stylesheet" href="../css/estilo.css">
-    <!--------------- MAPA------->
+
+        <!--------------- MAPA------->
     <meta charset="utf-8">
 <!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> original -->  
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -62,38 +58,40 @@
 <link rel="stylesheet" href="../css/estilo.css">
     <title>Nueva Orden - TacosWorld</title>
   </head>
-  <body>
+  <body style="background: url(../images/background.jpg)">
    <!-------------------------------------------------------------- BARRA DE NAVEGACIÓN ------------------------------------------------------------------->
-    <nav class="navbar navbar-expand-md flex-column navbar-inverse scrolling-navbar fixed-top bg-light" style="background-color: transparent;">
-        <a class="navbar-brand align-self-center m-0 pb-3 position-md-absolute pb-md-0" href="#">
-           <img id= "logo" src="../images/logo.png" alt="tacosWorld"></a>
-            <button style="background-color: red;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-         
-         <div class="collapse navbar-collapse justify-content-md-center w-100" id="navbarNav">
-              <ul class="navbar-nav text-center" >
-               <li class="nav-item active"><a id = "secciones"  class="nav-link" href="#">Taquerias</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Promociones</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Nosotros</a></li>
-               <li class="nav-item"><a id = "secciones" class="nav-link" href="#">Arma  tu taco</a>
-               </li>
-              </ul>
-         </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <a href="../index.html" class="navbar-brand"><img src="../images/logo.png" style = "width:70px;"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="../Historia.html">Historia</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Productos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Distribuidores</a>
+      </li>
+    </ul>
+  </div>
+</nav>
     
    <!---------------------------------------------------------FORMULARIO---------------------------------------------------------------------------------->
-   <br><br><br><br><br><br><br>
+   <br><br><br><br><br><br>
    <div id="h1">
-    <h1 class="h1 justify-content-md-center">Formulario</h1>
-    <h6 class=h6>Registra la información de tu taqueria, se publicará enseguida en la página.</h6>
+    <h1 class="h1 justify-content-md-center" style="color: white">Formulario</h1>
+    <h6 class=h6 style="color: white">Registra la información de tu sucursal, se publicará enseguida en la página.</h6>
    </div>
    <br>
    <center>
    <div id="formulario" class="shadow p-3 mb-5 bg-white rounded justify-content-md-center" style="background-color: #F2F2F2; width: 80%;">
        
-       <form class="needs-validation" novalidate method="POST" action="../PHP/NuevaTaqueria.php" enctype="multipart/form-data">
-          <div class="form-row">
+       <form class="needs-validation" novalidate method="POST" action="../PHP/NuevaSucursal.php" enctype="multipart/form-data">
+          <div class="form-row justify-content-md-center">
             <div class="col-md-4 mb-2">
               <label for="validationCustom01">Nombre</label>
               <input type="text" class="form-control" id="validationCustom01" placeholder="Nombre de tu local" required name="nombre">
@@ -114,7 +112,7 @@
                   Debes ingresar tu nombre
                 </div>
             </div>
-            <div class="col-md-6 mb-2">
+            <div class="col-md-4 mb-2">
               <label for="validationCustom02">Dirección</label>
               <input type="text" class="form-control" id="validationCustom02" placeholder="Calle, Número, Municipio, Estado" required name= "direccion">
               <div class="valid-feedback">
@@ -125,32 +123,8 @@
                 </div>
             </div>            
           </div>
-          <div class="form-row">
-          <div class="col-md-3 mb-3">
-              <label for="validationCustomUsername">Latitud</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend">#</span>
-                </div>
-                <input readonly type="text" class="form-control" id="latitud" placeholder="Latitud" aria-describedby="inputGroupPrepend" name="latitud" >
-                <div class="invalid-feedback">
-                  Debes ingresar la altitud de tu local
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 mb-3">
-              <label for="validationCustomUsername">Longitud</label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text" id="inputGroupPrepend">#</span>
-                </div>
-                <input readonly type="text" class="form-control" id="longitud" placeholder="Longitud" aria-describedby="inputGroupPrepend" name="longitud" >
-                <div class="invalid-feedback">
-                  Debes ingresar la longitud de tu local
-                </div>
-              </div>
-            </div>
-            
+          <div class="form-row justify-content-md-center">
+                      
             <div class="col-md-6 mb-3">
               <label for="validationCustom03">Imagen</label>
               <input type="file" class="form-control file" id="validationCustom03"  required name="imagen">
@@ -161,7 +135,7 @@
            </div>
 
          
-          <div class="form-row">           
+          <div class="form-row justify-content-md-center">           
             <div class="col-md-6 mb-3" >
               <label for="validationCustom04">Descripcion</label>
               <textarea class="form-control" placeholder="Incluye informacion importante como tus horarios, tus días de trabajo" name="descripcion" id="descripcion" rows="10" required></textarea>
@@ -169,16 +143,7 @@
                 Deberias agregar una descripción
               </div>
             </div>
-            
-             <div class="col-md-6 mb-12">
-              <label for="validationCustom04">Mapa</label>
-              <div class = "row" style="width: 100%; height: 290px; overflow: auto; display: block;">
-                  <!-------------- MAPA -------------->
-                  <div id="mapaTaqueria">
-                  <script src="../js/mapaTaqueria.js"></script>
-                  </div>
-              </div>
-            </div>               
+                        
           </div>
           
           <div class="form-group">
